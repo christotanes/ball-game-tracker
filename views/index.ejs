@@ -13,27 +13,32 @@
 
     <% for(let match of games){ %>
     <section>
-        <div class="matchup">
-            <div id="homeTeam">
+        <div class="matchup" id="<%= match.cardData.gameId %>" style="background-image: url('https://cdn.nba.com/davinci/images/team-matchups/nba/latest/ced/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>/320x180.png')">
+            <div id="homeTeam" class="matchDetails">
                 <%= match.cardData.homeTeam.teamTricode %>
-                <div class="homeScore">
-                    <%= match.cardData.homeTeam.score %>        
-                </div> 
                 <div class="record">
                     <%= match.cardData.homeTeam.teamSubtitle %>
                 </div>
             </div>
-            <div id="awayTeam">
+            <div class="score matchDetails">
+                <%= match.cardData.homeTeam.score %>        
+            </div>
+            <span class="status matchDetails">
+               <%= match.cardData.gameStatusText %>
+            </span>
+            <div class="score matchDetails">
+                <%= match.cardData.awayTeam.score %>
+            </div> 
+            <div id="awayTeam" class="matchDetails">
                 <%= match.cardData.awayTeam.teamTricode %>
-                <div class="homeScore">
-                    <%= match.cardData.awayTeam.score %>
-                </div> 
+                
                 <div class="record">
                     <%= match.cardData.awayTeam.teamSubtitle %>
                 </div>  
             </div>
+           
         </div>
-    </section>
+    </section> 
     <% } %>
 </body>
 </html>
