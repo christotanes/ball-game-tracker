@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NBA Tracker</title>
 </head>
 <body>
-    <h1>Hello World5</h1>
-    <h2> <%= games[2].cardData.homeTeam.teamName %> </h2>
-    <h2> <%= games[2].cardData.awayTeam.teamName %> </h2>
+
+    <div id="banner"></div>
+
+    <% for(let match of games){ %>
+    <section>
+        <div class="matchup">
+            <div id="homeTeam">
+                <%= match.cardData.homeTeam.teamTricode %> > <%= match.cardData.homeTeam.score %> <%= match.cardData.homeTeam.teamSubtitle %>
+            </div>
+            <div id="awayTeam">
+                <%= match.cardData.awayTeam.teamTricode %> > <%= match.cardData.awayTeam.score %> <%= match.cardData.awayTeam.teamSubtitle %>
+            </div>
+        </div>
+    </section>
+    <% } %>
 </body>
 </html>

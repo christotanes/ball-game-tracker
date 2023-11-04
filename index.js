@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
             games.push(game)
         };
         
-        console.log(`Axios and Cheerio request successful. Rendering with values: ${games}`);
+        console.log(`Axios and Cheerio request successful. Rendering with values: ${games[0].cardData.homeTeam.teamTricode}`);
         return res.render("index.ejs", {
             games: games
         })
