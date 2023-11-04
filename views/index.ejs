@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Tracker</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
 
     <div id="banner"></div>
@@ -13,10 +15,22 @@
     <section>
         <div class="matchup">
             <div id="homeTeam">
-                <%= match.cardData.homeTeam.teamTricode %> > <%= match.cardData.homeTeam.score %> <%= match.cardData.homeTeam.teamSubtitle %>
+                <%= match.cardData.homeTeam.teamTricode %>
+                <div class="homeScore">
+                    <%= match.cardData.homeTeam.score %>        
+                </div> 
+                <div class="record">
+                    <%= match.cardData.homeTeam.teamSubtitle %>
+                </div>
             </div>
             <div id="awayTeam">
-                <%= match.cardData.awayTeam.teamTricode %> > <%= match.cardData.awayTeam.score %> <%= match.cardData.awayTeam.teamSubtitle %>
+                <%= match.cardData.awayTeam.teamTricode %>
+                <div class="homeScore">
+                    <%= match.cardData.awayTeam.score %>
+                </div> 
+                <div class="record">
+                    <%= match.cardData.awayTeam.teamSubtitle %>
+                </div>  
             </div>
         </div>
     </section>
