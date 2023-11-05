@@ -21,25 +21,33 @@
     
     <section id="matches">
         <% for(let match of games){ %>
-        <div class="matchup" id="<%= match.cardData.gameId %>" style="background-image: url('https://cdn.nba.com/davinci/images/team-matchups/nba/latest/ced/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>/320x180.png')">
-            <div class="awayScore matchDetails">
-                <%= match.cardData.awayTeam.score %>
-            </div> 
-            <div class="awayTeam matchDetails">
-                <div class="record">
-                    <%= match.cardData.awayTeam.teamSubtitle %>
-                </div>  
-            </div>
-            <span class="status matchDetails">
-            <%= match.cardData.gameStatusText %>
-            </span>
+        <div class="matchup" id="<%= match.cardData.gameId %>" style="background-image: url('https://cdn.nba.com/davinci/images/team-matchups/nba/latest/ced/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>/320x180.png')">  
+        
+            <!-- homeTeam is visually on the RIGHT -->
             <div class="homeTeam matchDetails">
-                <div class="record">
-                    <%= match.cardData.homeTeam.teamSubtitle %>
-                </div>
+                <% if(match.cardData.awayTeam.score < match.cardData.homeTeam.score) { %>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="9 5 19 12 9 19 9 5" fill="currentColor"/></svg>
+                <%}%>
+                    <span class="teamDetails"><%= match.cardData.homeTeam.score %></span>
+                    <span class="teamDetails"><%= match.cardData.homeTeam.teamSubtitle %> </span>
             </div>
-            <div class="homescore matchDetails">
-                <%= match.cardData.homeTeam.score %>        
+           
+            <div class="status matchDetails">
+                <%= match.cardData.gameStatusText %>
+            </div>
+            
+            <!-- awayTeam is visually on the LEFT -->
+            <div class="awayTeam matchDetails">
+                <div class="awayScore matchDetails">
+                    <span class="teamDetails"><%= match.cardData.awayTeam.teamSubtitle %></span>
+                    <span class="teamDetails"><%= match.cardData.awayTeam.score %> </span>
+                    <% if(match.cardData.awayTeam.score > match.cardData.homeTeam.score) { %>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="15 19 5 12 15 5 15 19" fill="currentColor"/></svg>
+                    <%}%>
+                </div>  
+     
             </div>
         </div>
         <% } %>
