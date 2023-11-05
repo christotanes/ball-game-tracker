@@ -11,7 +11,7 @@ body {
     background-color: rgb(11, 0, 80);
     color: rgb(248, 247, 255);
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .headlineTitle {
@@ -19,9 +19,22 @@ body {
     height: 55px;
     width: 320px;
     padding: 0.5rem;
-    animation: fadeInFromRightThenExitLeft 10s forwards;
-    margin: 1rem auto 1rem auto;
+    animation: fadeInFromRightThenExitLeft 10s;
+    margin: 0 auto;
     justify-content: center;
+    font-weight: bold;
+}
+
+.headlineLink:link {
+    color: #000000;
+}
+
+.headlineLink:visited {
+    color: #000000;
+}
+
+.headlineLink:hover, #headlines:hover, .headlineTitle:hover {
+    color: #000dff;
 }
 
 @keyframes fadeInFromRightThenExitLeft {
@@ -40,11 +53,15 @@ body {
 }
 
 #headlines {
-    position: relative;
+    position: sticky;
+    left: 0;
+    top: 0;
+    background-color: rgb(255,255,255);
+    height: 55px
 }
 
 .timer {
-    height: 1px;
+    height: 2px;
     width: 0px;
     position: absolute;
     left: 0;
