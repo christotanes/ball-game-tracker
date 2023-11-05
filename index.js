@@ -18,14 +18,19 @@ app.get("/", async (req, res) => {
             throw new Error('Unable to find __NEXT_DATA__');
         };
 
+        let headlines = [];
         let games = [];
         for (let game of scriptContent.props.pageProps.gameCardFeed.modules[0].cards){
             games.push(game)
         };
+        for (let headline of scriptContent.props.pageProps.headlines.headlines.items){
+            headlines.push(headline)
+        };
         
-        console.log(`Axios and Cheerio request successful. Rendering with values: ${games[0].cardData.homeTeam.teamTricode}`);
+        console.log(`Axios and Cheerio request successful. Rendering with values: ${scriptContent}`);
         return res.render("index.ejs", {
-            games: games
+            games: games,
+            headlines: headlines
         })
     } catch (error) {
         console.error('Error:', error);

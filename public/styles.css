@@ -13,15 +13,6 @@ body {
     position: relative;
 }
 
-#landing{
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    animation-name: disappear;
-    animation-duration: 5s;
-}
-
 @keyframes disappear {
     from {
       opacity: 1;
@@ -29,11 +20,6 @@ body {
     to {
       opacity: 0;
     }
-}
-
-#matches {
-    animation-name: reappear;
-    animation-delay: 5s;
 }
 
 @keyframes reappear {
@@ -46,7 +32,6 @@ body {
       display: block
     }
 }
-
 
 .matchup {
     width: 320px;
