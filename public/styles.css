@@ -120,31 +120,52 @@ body {
 
 .homeTeam {
     text-align: end;
-    padding-top: 0.8rem;
+    /* padding-top: 0.8rem; */
+    position: absolute;
+    top: 18%;
+    right: 25%;
+    transform: translate(50%, -50%);
 }
 
-.teamDetails {
-    padding-right: 0.5rem;
+.homeSub {
+    position: absolute;
+    top: 13.5%;
+    right: 2.5%;
+}
+
+.awayTeam {
+    /* padding-bottom: 0.8rem; */
+    position: absolute;
+    bottom: 18%;
+    left: 25%;
+    transform: translate(-50%, 50%);
+}
+
+.awaySub {
+    position: absolute;
+    bottom: 12%;
+    left: 2.5%;
 }
 
 .status {
     text-align: center;
-    padding-top: 1.3rem;
     position: absolute;
-    top: 0%;
-    left: 0%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .matchDetails{
-    margin: 0.5rem;
     font-size: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
 }
 
 svg {
     transform: translateY(3px);
 }
-
 
 .footer { 
     margin-top: auto;
@@ -154,7 +175,6 @@ svg {
 }
 
 a {
-    /* margin: 5px; */
     padding: 0 5px;
 }
 
