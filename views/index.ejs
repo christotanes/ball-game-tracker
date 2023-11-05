@@ -9,14 +9,32 @@
 
 <body>
 
-    
-    <section id="headlines">
-    <% for(let headline of headlines){ %>
-        <div class="headlineTitle">  
-            <a href="<%= headline.permalink %>" target="blank" class="headlineLink"><%= headline.title %></a>
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+        <!-- <a href="/" class="active">Logo</a> -->
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+            <% for(let match of games){ %>
+                <a href="https://www.nba.com/game/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-vs-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>-<%= match.cardData.gameId %>" target="_blank"><%= match.cardData.awayTeam.teamTricode%> vs <%= match.cardData.homeTeam.teamTricode%></a>
+            <%}%>
         </div>
-    <% }%>
-    <span class="timer"></span>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.5a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 1.5 1.5zM21 6.5a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 1.5 1.5zM21 18.5a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 1.5 1.5z"/>
+            </svg>          
+        </a>
+    </div>
+
+    <section>
+    <div id="headlines">
+        <% for(let headline of headlines){ %>
+            <div class="headlineTitle">  
+                <a href="<%= headline.permalink %>" target="blank" class="headlineLink"><%= headline.title %></a>
+            </div>
+        <% }%>
+        <span class="timer"></span>
+    </div>
     </section>
     
     <section id="matches">
