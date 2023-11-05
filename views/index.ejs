@@ -19,13 +19,13 @@
     <span class="timer"></span>
     </section>
     
-    <section>
+    <section id="matches">
         <% for(let match of games){ %>
         <div class="matchup" id="<%= match.cardData.gameId %>" style="background-image: url('https://cdn.nba.com/davinci/images/team-matchups/nba/latest/ced/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>/320x180.png')">
-            <div class="score matchDetails">
+            <div class="awayScore matchDetails">
                 <%= match.cardData.awayTeam.score %>
             </div> 
-            <div id="awayTeam" class="matchDetails">
+            <div class="awayTeam matchDetails">
                 <div class="record">
                     <%= match.cardData.awayTeam.teamSubtitle %>
                 </div>  
@@ -33,12 +33,12 @@
             <span class="status matchDetails">
             <%= match.cardData.gameStatusText %>
             </span>
-            <div id="homeTeam" class="matchDetails">
+            <div class="homeTeam matchDetails">
                 <div class="record">
                     <%= match.cardData.homeTeam.teamSubtitle %>
                 </div>
             </div>
-            <div class="score matchDetails">
+            <div class="homescore matchDetails">
                 <%= match.cardData.homeTeam.score %>        
             </div>
         </div>

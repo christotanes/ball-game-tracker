@@ -39,25 +39,31 @@ body {
 
 @keyframes fadeInFromRightThenExitLeft {
     0% {
-      transform: translateX(100%);
+        transform: translateX(100%);
+        opacity: 0;
     }
     25% {
-      transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
     }
     80% {
+        opacity: 1;
         transform: translateX(0);
     }
     100% {
+        opacity: 0;
         transform: translateX(-100%);
     }
 }
 
 #headlines {
-    position: sticky;
+    position: fixed;
     left: 0;
     top: 0;
     background-color: rgb(255,255,255);
-    height: 55px
+    height: 55px;
+    width: 100%;
+    z-index: 1;
 }
 
 .timer {
@@ -79,6 +85,11 @@ body {
     }
 }
 
+#matches {
+    margin-top: 4.5rem;
+    z-index: 0;
+}
+
 .matchup {
     width: 320px;
     height: 180px;
@@ -88,10 +99,38 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
     background-repeat: no-repeat;
+    animation: moveUpAndSettle 1.5s 1;
+    position: relative;
+}
+
+@keyframes moveUpAndSettle {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10%);
+    }
+    75% {
+        transform: translateY(1%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.awayScore, .awayTeam {
+    align-self: flex-end;    
+}
+
+.status {
+    align-self: center;
 }
 
 .matchDetails{
     margin: 0.5rem;
+    font-size: 1.5rem;
 }
 
 .record {
@@ -132,52 +171,3 @@ a:active {
     background-color: #065ab4c6;
     text-decoration: none;
 }
-/* Animation Utility settings */
-/* .animate {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
-
-.animate-infinite {
-    animation-iteration-count: infinite;
-}
-
-.animate-delay-1 {
-    animation-delay: 1s;
-}
-
-.animate-fast {
-    animation-duration: 0.3s;
-}
-
-.animate-slow {
-    animation-duration: 3s;
-}
-
-@keyframes slideFromLeft {
-    from {
-        transform: translateX(-300px);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-
-.slideFromLeft {
-    animation-name: slideFromLeft;
-    animation-timing-function: ease-in;
-} */
-
-/* transition-property: transform;
-transition-duration: 0.3s;
-transition-timing-function: ease;
-transition-delay: 0s;
-
-transition: transform 0.3s ease 0; In order from top to bottom, left to right*/
-
-/* .btn:hover {
-    transform: translateY(-10px);
-    background-color: aliceblue; change if needed
-    color: blue; change if needed
-} */
