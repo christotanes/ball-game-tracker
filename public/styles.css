@@ -24,17 +24,14 @@ body {
 
 @keyframes disappear {
     from {
-        display: block;
       opacity: 1;
     }
     to {
       opacity: 0;
-      display: none;
     }
 }
 
 #matches {
-    display: none;
     animation-name: reappear;
     animation-delay: 5s;
 }
