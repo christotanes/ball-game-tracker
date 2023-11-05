@@ -11,25 +11,54 @@ body {
     background-color: rgb(11, 0, 80);
     color: rgb(248, 247, 255);
     position: relative;
+    overflow: hidden;
 }
 
-@keyframes disappear {
-    from {
-      opacity: 1;
+.headlineTitle {
+    display: none;
+    height: 55px;
+    width: 320px;
+    padding: 0.5rem;
+    animation: fadeInFromRightThenExitLeft 10s forwards;
+    margin: 1rem auto 1rem auto;
+    justify-content: center;
+}
+
+@keyframes fadeInFromRightThenExitLeft {
+    0% {
+      transform: translateX(100%);
     }
-    to {
-      opacity: 0;
+    25% {
+      transform: translateX(0);
+    }
+    80% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
 
-@keyframes reappear {
+#headlines {
+    position: relative;
+}
+
+.timer {
+    height: 1px;
+    width: 0px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(179, 0, 0);
+    animation: timerBar 10s cubic-bezier(0.4, 0, 1, 1) infinite
+}
+
+@keyframes timerBar {
     from {
-        display: none;
-      opacity: 0;
+        width: 0%;
     }
     to {
-      opacity: 1;
-      display: block
+        width: 100%;
     }
 }
 

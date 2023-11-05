@@ -13,9 +13,10 @@
     <section id="headlines">
     <% for(let headline of headlines){ %>
         <div class="headlineTitle">  
-            <a href="<%= headline.permalink %>" target="blank"><h3><%= headline.title %></h3></a>
+            <a href="<%= headline.permalink %>" target="blank"><%= headline.title %></a>
         </div>
     <% }%>
+    <span class="timer"></span>
     </section>
     
     <section>
