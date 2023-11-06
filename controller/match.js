@@ -1,3 +1,4 @@
+import express from 'express';
 import cheerio from 'cheerio';
 import axios from 'axios';
 
@@ -39,19 +40,21 @@ export async function getAllMatches (req, res){
 };
 
 export async function getMatchByGameId (req, res){
-    console.log(req.params.id)
-    console.log()
-    try {
-        const axiosResponse = await axios.get(`https://www.nba.com/game/${req.query.awayTeam}-vs-${req.query.homeTeam}-${req.query.id}`, { responseType: 'text' });
-        console.log(`Axios request successful of : ${req.query.id}`);
+    console.log(`This is req.params.id: ${req.params.id}`)
+    console.log(`This is req.params.awayTeam: ${req.params.awayTeam}`)
+    console.log(`This is req.params.homeTeam: ${req.params.homeTeam}`)
 
-        const $ = cheerio.load('axiosResponse.data');
+    try {
+        const axiosResponse = await axios.get(`https://www.nba.com/game/${req.params.awayTeam}-vs-${req.params.homeTeam}-${req.params.id}`, { responseType: 'text' });
+        console.log(`Axios request successful of : ${req.params.id}`);
+
+        const $ = cheerio.load(axiosResponse.data);
         const scriptContent = JSON.parse($('script#__NEXT_DATA__').html());
         if (!scriptContent) {
             throw new Error('Unable to find __NEXT_DATA__');
         };
 
-        return res.send(req.query.id)
+        return res.send(scriptContent)
     } catch(error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
