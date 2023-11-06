@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
 
-    <!-- Top Navigation Menu -->
-    <div class="topnav">
-        <!-- <a href="/" class="active">Logo</a> -->
-        <!-- Navigation links (hidden by default) -->
-        <div id="myLinks">
+    <nav class="navbar navbar-expand-lg bg-body-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">NBA Games</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bs-secondary-color"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
             <% for(let match of games){ %>
-                <a href="https://www.nba.com/game/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-vs-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>-<%= match.cardData.gameId %>" target="_blank"><%= match.cardData.awayTeam.teamTricode%> vs <%= match.cardData.homeTeam.teamTricode%></a>
+                <a href="https://www.nba.com/game/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-vs-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>-<%= match.cardData.gameId %>" target="_blank" class="nav-link">  <%= match.cardData.awayTeam.teamTricode%> vs <%= match.cardData.homeTeam.teamTricode%></a>
             <%}%>
+            </div>
+          </div>
         </div>
-        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.5a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 1.5 1.5zM21 6.5a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 1.5 1.5zM21 18.5a1.5 1.5 0 0 1-1.5 1.5H4.5a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 1.5 1.5z"/>
-            </svg>          
-        </a>
-    </div>
+      </nav>
 
     <section>
     <div id="headlines">
@@ -71,6 +71,7 @@
 
     <div class="footer"><a href="https://christotanes.github.io/web-portfolio/">Chris Totanes 2023</a> | For demonstration purposes only</div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </body>
 </html>
