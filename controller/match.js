@@ -2,7 +2,6 @@ import express from 'express';
 import cheerio from 'cheerio';
 import axios from 'axios';
 
-let gameId = [];
 export async function getAllMatches (req, res){
     try {
         const axiosResponse = await axios.get("https://www.nba.com/games", { responseType: 'text' });
@@ -14,15 +13,9 @@ export async function getAllMatches (req, res){
             throw new Error('Unable to find __NEXT_DATA__');
         };
 
-        let headlines = [];
-        let games = [];
+        let headlines = [], games = [];
         for (let game of scriptContent.props.pageProps.gameCardFeed.modules[0].cards){
             games.push(game)
-            gameId.push({
-                id: game.cardData.gameId,
-                awayTeam: game.cardData.awayTeam.teamTricode.toLowerCase(),
-                homeTeam: game.cardData.homeTeam.teamTricode.toLowerCase()
-            })
         };
         for (let headline of scriptContent.props.pageProps.headlines.headlines.items){
             headlines.push(headline)
