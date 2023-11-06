@@ -19,7 +19,7 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <% for(let match of games){ %>
-                <a href="/<%= match.cardData.awayTeam.teamTricode.toLowerCase()%>-vs-<%= match.cardData.homeTeam.teamTricode.toLowerCase()%>-<%= match.cardData.gameId %>" class="nav-link">  <%= match.cardData.awayTeam.teamTricode%> vs <%= match.cardData.homeTeam.teamTricode%></a>
+                <a href="/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-vs-<%= match.cardData.homeTeam.teamTricode.toLowerCase()%>-<%= match.cardData.gameId %>" class="nav-link">  <%= match.cardData.awayTeam.teamTricode%> vs <%= match.cardData.homeTeam.teamTricode%></a>
             <%}%>
             </div>
           </div>

@@ -47,7 +47,8 @@ export async function getMatchByGameId (req, res){
             throw new Error('Unable to find __NEXT_DATA__');
         };
 
-        return res.send(scriptContent)
+        console.log(`Axios and Cheerio request successful of ${req.params.id}. Rendering with values: ${scriptContent}`);
+        return res.render(scriptContent)
     } catch(error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
