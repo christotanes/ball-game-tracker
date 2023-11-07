@@ -194,3 +194,9 @@ a:active {
     background-color: #065ab4c6;
     text-decoration: none;
 }
+
+/* BOXSCORE STYLE */
+.playerStat {
+    font-size: 0.5rem;
+    padding: 0.5rem 0.5rem;
+}

@@ -1,76 +1,71 @@
 <section id="boxscore">
-    <div class="homeStat">
-        <div class="home">
-            <%= boxscore[0].teamName %>
-            <table>
-                <tr class="boxScoreStats">
-                    <th>PLAYER</th>
-                    <th>MIN</th>
-                    <th>PTS</th>
-                    <th>FGA/M</th>
-                    <th>3PA/M</th>
-                    <th>FTA/M</th>
-                    <th>REB</th>
-                    <th>AST</th>
-                    <th>STL</th>
-                    <th>BLK</th>
-                    <th>TO</th>
-                    <th>+/-</th>
-                </tr>
-                <% for(let stat of boxscore[0].players){ %>
-                <tr>
-                    <td><%= stat.nameI %></td>
-                    <td><%= stat.statistics.minutes%></td>
-                    <td><%= stat.statistics.points%></td>
-                    <td><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></td>
-                    <td><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></td>
-                    <td><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></td>
-                    <td><%= stat.statistics.reboundsTotal%></td>
-                    <td><%= stat.statistics.assists%></td>
-                    <td><%= stat.statistics.steals%></td>
-                    <td><%= stat.statistics.blocks%></td>
-                    <td><%= stat.statistics.turnovers%></td>
-                    <td><%= stat.statistics.plusMinusPoints%></td>
-                </tr>
-                <% } %>
-            </table>
+    <div class="stat container"><%= boxscore[0].teamName %>
+        <div class="home row">
+            <div class="playerName col-12 border border-secondary-subtle rounded">PLAYER</div>
+            <div class="playerStat col-1 border border-black text-center">MIN</div>
+            <div class="playerStat col-1 border border-black text-center">PTS</div>
+            <div class="playerStat col-1 border border-black text-center">FG</div>
+            <div class="playerStat col-1 border border-black text-center">3P</div>
+            <div class="playerStat col-1 border border-black text-center">FT</div>
+            <div class="playerStat col-1 border border-black text-center">REB</div>
+            <div class="playerStat col-1 border border-black text-center">AST</div>
+            <div class="playerStat col-1 border border-black text-center">STL</div>
+            <div class="playerStat col-1 border border-black text-center">BLK</div>
+            <div class="playerStat col-1 border border-black text-center">TO</div>
+            <div class="playerStat col-1 border border-black text-center">PF</div>
+            <div class="playerStat col-1 border border-black text-center">+/-</div>
         </div>
+        <% for(let stat of boxscore[0].players){ %>
+        <div class="home row">
+            <div class="playerName col-12 border border-secondary-subtle rounded"><%= stat.nameI %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.minutes%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.points%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.reboundsTotal%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.assists%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.steals%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.blocks%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.turnovers%></div>
+            <div class="playerStat col-1 border border-black text-center">PF</div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.plusMinusPoints%></div>
+        </div>
+        <% } %>
     </div>
-    <div class="awayStat">
-        <div class="away">
-            <%= boxscore[1].teamName %>
-            <table>
-                <tr class="boxScoreStats">
-                    <th>PLAYER</th>
-                    <th>MIN</th>
-                    <th>PTS</th>
-                    <th>FGA/M</th>
-                    <th>3PA/M</th>
-                    <th>FTA/M</th>
-                    <th>REB</th>
-                    <th>AST</th>
-                    <th>STL</th>
-                    <th>BLK</th>
-                    <th>TO</th>
-                    <th>+/-</th>
-                </tr>
-                <% for(let stat of boxscore[1].players){ %>
-                <tr>
-                    <td><%= stat.nameI %></td>
-                    <td><%= stat.statistics.minutes%></td>
-                    <td><%= stat.statistics.points%></td>
-                    <td><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></td>
-                    <td><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></td>
-                    <td><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></td>
-                    <td><%= stat.statistics.reboundsTotal%></td>
-                    <td><%= stat.statistics.assists%></td>
-                    <td><%= stat.statistics.steals%></td>
-                    <td><%= stat.statistics.blocks%></td>
-                    <td><%= stat.statistics.turnovers%></td>
-                    <td><%= stat.statistics.plusMinusPoints%></td>
-                </tr>
-                <% } %>
-            </table>
+    <div class="stat container">
+        <%= boxscore[1].teamName %>
+        <div class="away row">
+            <div class="playerName col-12 border border-secondary-subtle rounded">PLAYER</div>
+            <div class="playerStat col-1 border border-black text-center">MIN</div>
+            <div class="playerStat col-1 border border-black text-center">PTS</div>
+            <div class="playerStat col-1 border border-black text-center">FG</div>
+            <div class="playerStat col-1 border border-black text-center">3P</div>
+            <div class="playerStat col-1 border border-black text-center">FT</div>
+            <div class="playerStat col-1 border border-black text-center">REB</div>
+            <div class="playerStat col-1 border border-black text-center">AST</div>
+            <div class="playerStat col-1 border border-black text-center">STL</div>
+            <div class="playerStat col-1 border border-black text-center">BLK</div>
+            <div class="playerStat col-1 border border-black text-center">TO</div>
+            <div class="playerStat col-1 border border-black text-center">PF</div>
+            <div class="playerStat col-1 border border-black text-center">+/-</div>
         </div>
+        <% for(let stat of boxscore[1].players){ %>
+        <div class="away row">
+            <div class="playerName col-12 border border-secondary-subtle rounded"><%= stat.nameI %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.minutes%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.points%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.reboundsTotal%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.assists%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.steals%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.blocks%></div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.turnovers%></div>
+            <div class="playerStat col-1 border border-black text-center">PF</div>
+            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.plusMinusPoints%></div>
+        </div>
+        <% } %>
     </div>
 </section>
