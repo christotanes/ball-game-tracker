@@ -1,70 +1,71 @@
 <section id="boxscore">
-    <div class="stat container"><%= boxscore[0].teamName %>
+    <div class="stat container">
+        <%= boxscore[0].teamName.toUpperCase() %>
         <div class="home row">
-            <div class="playerName col-12 border border-secondary-subtle rounded">PLAYER</div>
-            <div class="playerStat col-1 border border-black text-center">MIN</div>
-            <div class="playerStat col-1 border border-black text-center">PTS</div>
-            <div class="playerStat col-1 border border-black text-center">FG</div>
-            <div class="playerStat col-1 border border-black text-center">3P</div>
-            <div class="playerStat col-1 border border-black text-center">FT</div>
-            <div class="playerStat col-1 border border-black text-center">REB</div>
-            <div class="playerStat col-1 border border-black text-center">AST</div>
-            <div class="playerStat col-1 border border-black text-center">STL</div>
-            <div class="playerStat col-1 border border-black text-center">BLK</div>
-            <div class="playerStat col-1 border border-black text-center">TO</div>
-            <div class="playerStat col-1 border border-black text-center">PF</div>
-            <div class="playerStat col-1 border border-black text-center">+/-</div>
+            <div class="playerName col-12">PLAYER</div>
+            <div class="playerStat col-1 border border-dark text-center">MIN</div>
+            <div class="playerStat col-1 border border-dark text-center">PTS</div>
+            <div class="playerStat col-1 border border-dark text-center">FG</div>
+            <div class="playerStat col-1 border border-dark text-center">3P</div>
+            <div class="playerStat col-1 border border-dark text-center">FT</div>
+            <div class="playerStat col-1 border border-dark text-center">REB</div>
+            <div class="playerStat col-1 border border-dark text-center">AST</div>
+            <div class="playerStat col-1 border border-dark text-center">STL</div>
+            <div class="playerStat col-1 border border-dark text-center">BLK</div>
+            <div class="playerStat col-1 border border-dark text-center">TO</div>
+            <div class="playerStat col-1 border border-dark text-center">PF</div>
+            <div class="playerStat col-1 border border-dark text-center">+/-</div>
         </div>
         <% for(let stat of boxscore[0].players){ %>
         <div class="home row">
-            <div class="playerName col-12 border border-secondary-subtle rounded"><%= stat.nameI %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.minutes%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.points%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.reboundsTotal%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.assists%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.steals%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.blocks%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.turnovers%></div>
-            <div class="playerStat col-1 border border-black text-center">PF</div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.plusMinusPoints%></div>
+            <div class="playerName col-12"><%= stat.nameI %></div>
+            <div class="playerStat col-1 border border-dark text-center"><% if(stat.statistics.minutes){ %><%= stat.statistics.minutes%><% } else { %> DNP <%} %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.points%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.reboundsTotal%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.assists%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.steals%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.blocks%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.turnovers%></div>
+            <div class="playerStat col-1 border border-dark text-center">PF</div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.plusMinusPoints%></div>
         </div>
         <% } %>
     </div>
     <div class="stat container">
-        <%= boxscore[1].teamName %>
+        <%= boxscore[1].teamName.toUpperCase() %>
         <div class="away row">
-            <div class="playerName col-12 border border-secondary-subtle rounded">PLAYER</div>
-            <div class="playerStat col-1 border border-black text-center">MIN</div>
-            <div class="playerStat col-1 border border-black text-center">PTS</div>
-            <div class="playerStat col-1 border border-black text-center">FG</div>
-            <div class="playerStat col-1 border border-black text-center">3P</div>
-            <div class="playerStat col-1 border border-black text-center">FT</div>
-            <div class="playerStat col-1 border border-black text-center">REB</div>
-            <div class="playerStat col-1 border border-black text-center">AST</div>
-            <div class="playerStat col-1 border border-black text-center">STL</div>
-            <div class="playerStat col-1 border border-black text-center">BLK</div>
-            <div class="playerStat col-1 border border-black text-center">TO</div>
-            <div class="playerStat col-1 border border-black text-center">PF</div>
-            <div class="playerStat col-1 border border-black text-center">+/-</div>
+            <div class="playerName col-12">PLAYER</div>
+            <div class="playerStat col-1 border border-dark text-center">MIN</div>
+            <div class="playerStat col-1 border border-dark text-center">PTS</div>
+            <div class="playerStat col-1 border border-dark text-center">FG</div>
+            <div class="playerStat col-1 border border-dark text-center">3P</div>
+            <div class="playerStat col-1 border border-dark text-center">FT</div>
+            <div class="playerStat col-1 border border-dark text-center">REB</div>
+            <div class="playerStat col-1 border border-dark text-center">AST</div>
+            <div class="playerStat col-1 border border-dark text-center">STL</div>
+            <div class="playerStat col-1 border border-dark text-center">BLK</div>
+            <div class="playerStat col-1 border border-dark text-center">TO</div>
+            <div class="playerStat col-1 border border-dark text-center">PF</div>
+            <div class="playerStat col-1 border border-dark text-center">+/-</div>
         </div>
         <% for(let stat of boxscore[1].players){ %>
         <div class="away row">
-            <div class="playerName col-12 border border-secondary-subtle rounded"><%= stat.nameI %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.minutes%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.points%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.reboundsTotal%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.assists%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.steals%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.blocks%></div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.turnovers%></div>
-            <div class="playerStat col-1 border border-black text-center">PF</div>
-            <div class="playerStat col-1 border border-black text-center"><%= stat.statistics.plusMinusPoints%></div>
+            <div class="playerName col-12"><%= stat.nameI %></div>
+            <div class="playerStat col-1 border border-dark text-center"><% if(stat.statistics.minutes){ %><%= stat.statistics.minutes%><% } else { %> DNP <%} %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.points%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.threePointersMade %>/<%= stat.statistics.threePointersAttempted %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.freeThrowsMade %>/<%= stat.statistics.freeThrowsAttempted %></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.reboundsTotal%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.assists%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.steals%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.blocks%></div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.turnovers%></div>
+            <div class="playerStat col-1 border border-dark text-center">PF</div>
+            <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.plusMinusPoints%></div>
         </div>
         <% } %>
     </div>
