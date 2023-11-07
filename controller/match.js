@@ -51,9 +51,20 @@ export async function getMatchByGameId (req, res){
             throw new Error('Unable to find __NEXT_DATA__');
         };
         
-        let homeTeam = [], awayTeam = [];
+        // scriptContent.props.pageProps.game IS NOT AN ARRAY, OBJECT
+        let boxscore = []; 
+        for (let game of scriptContent.props.pageProps.game){
+            boxscore.push({
+                homeTeam: game.homeTeam,
+                awayTeam: game.awayTeam,
+                bkgImage: game.postgameCharts.ogImage
+            })
+        };
+        console.log(boxscore)
         console.log(`Axios and Cheerio request successful of ${req.params.id}. Rendering with values: ${scriptContent}`);
-        return res.render(scriptContent)
+        return res.render("index.ejs", {
+            boxscore: boxscore
+        })
     } catch(error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');

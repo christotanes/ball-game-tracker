@@ -43,43 +43,13 @@
         </div>
     </section>
     
-    <section id="matches">
+    <% if(locals.games) { %>
+        <%- include("matches.ejs") %>   
+    <% }else if(locals.boxscore){ %>
+        <%- include("boxscore.ejs") %>
+    <% } %>
 
-        <!-- A for of loop that will create a number of divs containing team names, scores, and records so far and inject the nba banner as background -->
-        <% for(let match of games){ %>
-        <div class="matchup" id="<%= match.cardData.gameId %>" style="background-image: url('https://cdn.nba.com/davinci/images/team-matchups/nba/latest/ced/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>/320x180.png')">  
-        
-            <!-- homeTeam is visually on the RIGHT -->
-            <div class="homeTeam matchDetails">
-                <% if(match.cardData.awayTeam.score < match.cardData.homeTeam.score) { %>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="9 5 19 12 9 19 9 5" fill="currentColor"/></svg>
-                <%}%>
-                    <%= match.cardData.homeTeam.score %>       
-            </div>
-            <div class="homeSub subtitle"> <%= match.cardData.homeTeam.teamSubtitle %> </div>
-            <div class="status matchDetails">
-                <%= match.cardData.gameStatusText %>
-            </div>
-            
-            <!-- awayTeam is visually on the LEFT -->
-            <div class="awayTeam matchDetails">
-                    
-                    <%= match.cardData.awayTeam.score %>
-                    <% if(match.cardData.awayTeam.score > match.cardData.homeTeam.score) { %>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="15 19 5 12 15 5 15 19" fill="currentColor"/></svg>
-                    <%}%>
-            </div>  
-            <div class="awaySub subtitle"> <%= match.cardData.awayTeam.teamSubtitle %></div>
-        </div>
-        <% } %>
-    </section> 
-    
-    <section>
-        <div class="footer"><a href="https://christotanes.github.io/web-portfolio/">Chris Totanes 2023</a> | For demonstration purposes only</div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <%- include("footer.ejs") %>
+
 </body>
 </html>
