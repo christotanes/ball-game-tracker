@@ -2,7 +2,7 @@ import express from 'express';
 import cheerio from 'cheerio';
 import axios from 'axios';
 
-let headlines = [], games = [];
+
 export async function getAllMatches (req, res){
     try {
         // axios will load/get the url
@@ -16,6 +16,7 @@ export async function getAllMatches (req, res){
             throw new Error('Unable to find __NEXT_DATA__');
         };
 
+        let headlines = [], games = [];
         // Place necessary json object values into arrays headlines and games
         for (let game of scriptContent.props.pageProps.gameCardFeed.modules[0].cards){
             games.push(game)
@@ -27,8 +28,8 @@ export async function getAllMatches (req, res){
 
         // Render into index.ejs with games and headlines keys
         return res.render("index.ejs", {
-            currentGames: games,
-            currentHeadlines: headlines
+            games: games,
+            headlines: headlines
         })
     } catch (error) {
         console.error('Error:', error);
@@ -52,21 +53,20 @@ export async function getMatchByGameId (req, res){
         };
         
         // scriptContent.props.pageProps.game IS NOT AN ARRAY, IT IS AN OBJECT
-        let boxscore = [];
-        boxscore.push({
-            homeTeam: scriptContent.props.pageProps.game.homeTeam,
-            awayTeam: scriptContent.props.pageProps.game.awayTeam,
-            bkgImage: scriptContent.props.pageProps.game.ogImage
-        });
+        let boxscore = [], games = [];
+        boxscore.push(scriptContent.props.pageProps.game.homeTeam);
+        boxscore.push(scriptContent.props.pageProps.game.awayTeam);
+        boxscore.push(scriptContent.props.pageProps.game.ogImage);
+
+        for (let game of scriptContent.props.pageProps.rollingSchedule.modules[2].cards){
+            games.push(game)
+        };
 
         console.log(boxscore)
         console.log(`Axios and Cheerio request successful of ${req.params.id}. Rendering with values: ${scriptContent}`);
         return res.render("index.ejs", {
-            scoreboard: {
-                boxscore: boxscore,
-                headlines: headlines,
-                games: games
-            }
+            boxscore: boxscore,
+            games: games
         })
     } catch(error) {
         console.error('Error:', error);

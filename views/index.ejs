@@ -9,14 +9,13 @@
 </head>
 
 <body>
-    <% if(locals.current) { %>
+    <% if(locals.boxscore) { %>
+      <%- include("navbar.ejs") %>
+      <%- include("boxscore.ejs") %>
+    <% } else { %>
       <%- include("navbar.ejs") %>
       <%- include("headlines.ejs") %>
       <%- include("matches.ejs") %> 
-    <% }else if(locals.boxscore){ %>   
-      <%- include("navbar.ejs") %>
-      <%- include("headlines.ejs") %>
-      <%- include("boxscore.ejs") %>
     <% } %>
 
     <%- include("footer.ejs") %>
