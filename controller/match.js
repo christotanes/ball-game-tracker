@@ -2,6 +2,7 @@ import express from 'express';
 import cheerio from 'cheerio';
 import axios from 'axios';
 
+let headlines = [], games = [];
 export async function getAllMatches (req, res){
     try {
         // axios will load/get the url
@@ -16,7 +17,6 @@ export async function getAllMatches (req, res){
         };
 
         // Place necessary json object values into arrays headlines and games
-        let headlines = [], games = [];
         for (let game of scriptContent.props.pageProps.gameCardFeed.modules[0].cards){
             games.push(game)
         };
@@ -27,8 +27,8 @@ export async function getAllMatches (req, res){
 
         // Render into index.ejs with games and headlines keys
         return res.render("index.ejs", {
-            games: games,
-            headlines: headlines
+            currentGames: games,
+            currentHeadlines: headlines
         })
     } catch (error) {
         console.error('Error:', error);
@@ -51,19 +51,22 @@ export async function getMatchByGameId (req, res){
             throw new Error('Unable to find __NEXT_DATA__');
         };
         
-        // scriptContent.props.pageProps.game IS NOT AN ARRAY, OBJECT
-        let boxscore = []; 
-        for (let game of scriptContent.props.pageProps.game){
-            boxscore.push({
-                homeTeam: game.homeTeam,
-                awayTeam: game.awayTeam,
-                bkgImage: game.postgameCharts.ogImage
-            })
-        };
+        // scriptContent.props.pageProps.game IS NOT AN ARRAY, IT IS AN OBJECT
+        let boxscore = [];
+        boxscore.push({
+            homeTeam: scriptContent.props.pageProps.game.homeTeam,
+            awayTeam: scriptContent.props.pageProps.game.awayTeam,
+            bkgImage: scriptContent.props.pageProps.game.ogImage
+        });
+
         console.log(boxscore)
         console.log(`Axios and Cheerio request successful of ${req.params.id}. Rendering with values: ${scriptContent}`);
         return res.render("index.ejs", {
-            boxscore: boxscore
+            scoreboard: {
+                boxscore: boxscore,
+                headlines: headlines,
+                games: games
+            }
         })
     } catch(error) {
         console.error('Error:', error);
