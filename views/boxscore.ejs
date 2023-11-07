@@ -1,8 +1,7 @@
 <section id="boxscore">
     <div class="stat container">
-        <%= boxscore[0].teamName.toUpperCase() %>
+        <div class="text-primary text-end text-uppercase fs-2 my-2 fw-bold bg-light pe-3 rounded"><%= boxscore[0].teamName %></div>
         <div class="home row">
-            <div class="playerName col-12">PLAYER</div>
             <div class="playerStat col-1 border border-dark text-center">MIN</div>
             <div class="playerStat col-1 border border-dark text-center">PTS</div>
             <div class="playerStat col-1 border border-dark text-center">FG</div>
@@ -35,9 +34,8 @@
         <% } %>
     </div>
     <div class="stat container">
-        <%= boxscore[1].teamName.toUpperCase() %>
+        <div class="text-primary text-end text-uppercase fs-2 my-2 fw-bold bg-light pe-3 rounded"><%= boxscore[1].teamName %></div>
         <div class="away row">
-            <div class="playerName col-12">PLAYER</div>
             <div class="playerStat col-1 border border-dark text-center">MIN</div>
             <div class="playerStat col-1 border border-dark text-center">PTS</div>
             <div class="playerStat col-1 border border-dark text-center">FG</div>
