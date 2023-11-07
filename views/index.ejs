@@ -10,15 +10,15 @@
 
 <body>
     <% if(locals.boxscore) { %>
-      <%- include("navbar.ejs") %>
+      <%- include("./partials/navbar.ejs") %>
       <%- include("boxscore.ejs") %>
     <% } else { %>
-      <%- include("navbar.ejs") %>
-      <%- include("headlines.ejs") %>
+      <%- include("./partials/navbar.ejs") %>
+      <%- include("./partials/headlines.ejs") %>
       <%- include("matches.ejs") %> 
     <% } %>
 
-    <%- include("footer.ejs") %>
+    <%- include("./partials/footer.ejs") %>
 
 </body>
 </html>

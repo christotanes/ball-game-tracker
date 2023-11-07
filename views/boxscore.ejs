@@ -1,6 +1,9 @@
 <section id="boxscore">
-    <div class="stat container">
-        <div class="text-primary text-end text-uppercase fs-2 my-2 fw-bold bg-light pe-3 rounded"><%= boxscore[0].teamName %></div>
+    <div class="stat container mb-3">
+        <div class="row">
+            <div class="teamName my-2  mx-2 ps-3 col rounded" style="background-image: url(<%=boxscore[2]%>);"></div>
+            <div class="text-primary text-end text-uppercase fs-1  mx-2 my-2 fw-bold rounded col" ><%= boxscore[0].teamName %></div>
+        </div>
         <div class="home row">
             <div class="playerStat col-1 border border-dark text-center">MIN</div>
             <div class="playerStat col-1 border border-dark text-center">PTS</div>
@@ -33,8 +36,11 @@
         </div>
         <% } %>
     </div>
-    <div class="stat container">
-        <div class="text-primary text-end text-uppercase fs-2 my-2 fw-bold bg-light pe-3 rounded"><%= boxscore[1].teamName %></div>
+    <div class="stat container mb-3">
+        <div class="row">
+            <div class="teamName my-2 ps-3 mx-2 col rounded" style="background-image: url(<%=boxscore[2]%>);"></div>
+            <div class="text-primary text-end text-uppercase fs-1 my-2 mx-2 fw-bold rounded col" ><%= boxscore[1].teamName %></div>
+        </div>
         <div class="away row">
             <div class="playerStat col-1 border border-dark text-center">MIN</div>
             <div class="playerStat col-1 border border-dark text-center">PTS</div>

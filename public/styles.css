@@ -162,9 +162,9 @@ section {
     font-size: 1rem;
 }
 
-svg {
+/* svg {
     transform: translateY(3px);
-}
+} */
 
 .footer { 
     margin-top: auto;
@@ -199,4 +199,9 @@ a:active {
 .playerStat {
     font-size: 0.5rem;
     padding: 0.5rem 0.5rem;
+}
+
+.teamName {
+    background-size: 174px 42px;
+    background-repeat: no-repeat;
 }
