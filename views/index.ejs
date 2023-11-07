@@ -18,6 +18,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+
+                <!-- A for of loop that will create a number of links corresponding to how many games were/are played that day -->
             <% for(let match of games){ %>
                 <a href="/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-vs-<%= match.cardData.homeTeam.teamTricode.toLowerCase()%>-<%= match.cardData.gameId %>" class="nav-link">  <%= match.cardData.awayTeam.teamTricode%> vs <%= match.cardData.homeTeam.teamTricode%></a>
             <%}%>
@@ -27,17 +29,23 @@
       </nav>
 
     <section>
-    <div id="headlines">
-        <% for(let headline of headlines){ %>
-            <div class="headlineTitle">  
-                <a href="<%= headline.permalink %>" target="blank" class="headlineLink"><%= headline.title %></a>
-            </div>
-        <% }%>
-        <span class="timer"></span>
-    </div>
+        <div id="headlines">
+
+            <!-- A for of loop that will create a number of divs containing links filled with headlines of the day -->
+            <% for(let headline of headlines){ %>
+                <div class="headlineTitle">  
+                    <a href="<%= headline.permalink %>" target="blank" class="headlineLink"><%= headline.title %></a>
+                </div>
+            <% }%>
+
+            <!-- Span with css that will animate how much time left before headline changes/slides -->
+            <span class="timer"></span>
+        </div>
     </section>
     
     <section id="matches">
+
+        <!-- A for of loop that will create a number of divs containing team names, scores, and records so far and inject the nba banner as background -->
         <% for(let match of games){ %>
         <div class="matchup" id="<%= match.cardData.gameId %>" style="background-image: url('https://cdn.nba.com/davinci/images/team-matchups/nba/latest/ced/<%= match.cardData.awayTeam.teamTricode.toLowerCase() %>-<%= match.cardData.homeTeam.teamTricode.toLowerCase() %>/320x180.png')">  
         
@@ -68,9 +76,9 @@
         <% } %>
     </section> 
     
-
-    <div class="footer"><a href="https://christotanes.github.io/web-portfolio/">Chris Totanes 2023</a> | For demonstration purposes only</div>
-
+    <section>
+        <div class="footer"><a href="https://christotanes.github.io/web-portfolio/">Chris Totanes 2023</a> | For demonstration purposes only</div>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </body>

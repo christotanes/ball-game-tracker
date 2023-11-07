@@ -4,15 +4,18 @@ import axios from 'axios';
 
 export async function getAllMatches (req, res){
     try {
+        // axios will load/get the url
         const axiosResponse = await axios.get("https://www.nba.com/games", { responseType: 'text' });
         console.log('Axios request successful');
 
+        // cheerio will look at the contents of the file for #__NEXT_DATA__ and store it into scriptContent
         const $ = cheerio.load(axiosResponse.data);
         const scriptContent = JSON.parse($('script#__NEXT_DATA__').html());
         if (!scriptContent) {
             throw new Error('Unable to find __NEXT_DATA__');
         };
 
+        // Place necessary json object values into arrays headlines and games
         let headlines = [], games = [];
         for (let game of scriptContent.props.pageProps.gameCardFeed.modules[0].cards){
             games.push(game)
@@ -20,8 +23,9 @@ export async function getAllMatches (req, res){
         for (let headline of scriptContent.props.pageProps.headlines.headlines.items){
             headlines.push(headline)
         };
-        // console.log(gameId);
         console.log(`Axios and Cheerio request successful. Rendering with values: ${scriptContent}`);
+
+        // Render into index.ejs with games and headlines keys
         return res.render("index.ejs", {
             games: games,
             headlines: headlines
@@ -46,7 +50,8 @@ export async function getMatchByGameId (req, res){
         if (!scriptContent) {
             throw new Error('Unable to find __NEXT_DATA__');
         };
-
+        
+        let homeTeam = [], awayTeam = [];
         console.log(`Axios and Cheerio request successful of ${req.params.id}. Rendering with values: ${scriptContent}`);
         return res.render(scriptContent)
     } catch(error) {
