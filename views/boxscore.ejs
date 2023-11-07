@@ -1,8 +1,8 @@
 <section id="boxscore">
     <div class="stat container mb-3">
         <div class="row">
-            <div class="teamName my-2  mx-2 ps-3 col rounded" style="background-image: url(<%=boxscore[2]%>);"></div>
-            <div class="text-primary text-end text-uppercase fs-1  mx-2 my-2 fw-bold rounded col" ><%= boxscore[0].teamName %></div>
+            <div class="teamName my-2 mx-2 ps-3 col rounded" style="background-image: url(<%=boxscore[2]%>);"></div>
+            <div class="text-primary text-end text-uppercase fs-1 my-2 fw-bold rounded col" ><%= boxscore[0].teamName %></div>
         </div>
         <div class="home row">
             <div class="playerStat col-1 border border-dark text-center">MIN</div>
@@ -20,7 +20,7 @@
         </div>
         <% for(let stat of boxscore[0].players){ %>
         <div class="home row">
-            <div class="playerName col-12"><%= stat.nameI %></div>
+            <div class="playerName col-12 text-end"><%= stat.nameI %></div>
             <div class="playerStat col-1 border border-dark text-center"><% if(stat.statistics.minutes){ %><%= stat.statistics.minutes%><% } else { %> DNP <%} %></div>
             <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.points%></div>
             <div class="playerStat col-1 border border-dark text-center"><%= stat.statistics.fieldGoalsMade %>/<%= stat.statistics.fieldGoalsAttempted %></div>
@@ -38,8 +38,8 @@
     </div>
     <div class="stat container mb-3">
         <div class="row">
-            <div class="teamName my-2 ps-3 mx-2 col rounded" style="background-image: url(<%=boxscore[2]%>);"></div>
-            <div class="text-primary text-end text-uppercase fs-1 my-2 mx-2 fw-bold rounded col" ><%= boxscore[1].teamName %></div>
+            <div class="text-primary text-uppercase fs-1 my-2 fw-bold rounded col" ><%= boxscore[1].teamName %></div>
+            <div class="teamName my-2 pe-3 mx-2 col rounded" style="background-image: url(<%=boxscore[2]%>);"></div>
         </div>
         <div class="away row">
             <div class="playerStat col-1 border border-dark text-center">MIN</div>
