@@ -9,6 +9,9 @@
     "start": "node index",
     "dev": "nodemon index"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "keywords": [],
   "author": "Chris Totanes",
   "license": "ISC",
