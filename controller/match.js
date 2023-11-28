@@ -58,15 +58,15 @@ export async function getMatchByGameId (req, res){
         boxscore.push(scriptContent.props.pageProps.game.awayTeam);
         boxscore.push(scriptContent.props.pageProps.game.ogImage);
 
-        for (let game of scriptContent.props.pageProps.rollingSchedule.modules[2].cards){
-            games.push(game)
-        };
+        // for (let game of scriptContent.props.pageProps.rollingSchedule.modules[2].cards){
+        //     games.push(game)
+        // };
 
         console.log(boxscore)
         console.log(`Axios and Cheerio request successful of ${req.params.id}. Rendering with values: ${scriptContent}`);
         return res.render("index.ejs", {
-            boxscore: boxscore,
-            games: games
+            boxscore: boxscore
+            // games: games
         })
     } catch(error) {
         console.error('Error:', error);
