@@ -1,9 +1,11 @@
 import express from 'express';
 import matchRoute from './route/match.js'
-const app = express();
-const port = 3000;
+import 'dotenv/config'
 
-// app.use(express.static('public'))
+const app = express();
+const port = `${process.env.PORT}`
+
+app.use(express.static('public'))
 
 app.use("/", matchRoute)
 
